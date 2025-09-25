@@ -1,0 +1,243 @@
+/* Portfolio Tim - Design Tokens - Thème Cybersécurité */
+
+:root {
+  /* ===== COULEURS ===== */
+
+  /* Couleurs principales - Thème Cybersécurité */
+  --color-bg-primary: #0a0a0a; /* Noir terminal */
+  --color-bg-secondary: #1a1a1a; /* Surfaces secondaires */
+  --color-bg-tertiary: #2a2a2a; /* Surfaces tertiaires */
+  --color-bg-elevated: #3a3a3a; /* Surfaces élevées */
+
+  /* Couleurs d'accent - Cybersécurité */
+  --color-accent-primary: #00ff41; /* Vert terminal - Couleur principale */
+  --color-accent-secondary: #00d4ff; /* Bleu cybersécurité - Accents */
+  --color-accent-alert: #ff0040; /* Rouge alerte - Erreurs/alertes */
+  --color-accent-warning: #ffff00; /* Jaune warning - Avertissements */
+
+  /* Couleurs d'accent (compatibilité) */
+  --color-accent-red: var(--color-accent-primary); /* Vert terminal */
+  --color-accent-red-light: #33ff66; /* Vert terminal clair */
+  --color-accent-red-dark: #00cc33; /* Vert terminal foncé */
+
+  /* Couleurs de texte - Thème Cybersécurité */
+  --color-text-primary: #00ff41; /* Vert terminal - Texte principal */
+  --color-text-secondary: #00d4ff; /* Bleu cybersécurité - Texte secondaire */
+  --color-text-tertiary: #cccccc; /* Gris clair - Texte tertiaire */
+  --color-text-muted: #888888; /* Gris moyen - Texte atténué */
+
+  /* Couleurs d'état - Cybersécurité */
+  --color-success: #00ff41; /* Vert terminal - Succès */
+  --color-warning: #ffff00; /* Jaune warning - Avertissement */
+  --color-error: #ff0040; /* Rouge alerte - Erreur */
+  --color-info: #00d4ff; /* Bleu cybersécurité - Information */
+
+  /* Couleurs de bordure - Cybersécurité */
+  --color-border-primary: #333333; /* Bordure principale */
+  --color-border-secondary: #555555; /* Bordure secondaire */
+  --color-border-accent: var(
+    --color-accent-primary
+  ); /* Bordure accent - Vert terminal */
+
+  /* États de focus pour l'accessibilité - Cybersécurité */
+  --color-focus-ring: #00d4ff; /* Anneau de focus - Bleu cybersécurité */
+  --color-focus-ring-offset: var(--color-bg-primary); /* Offset du focus ring */
+
+  /* ===== TYPOGRAPHIES ===== */
+
+  /* Familles de polices */
+  --font-family-primary:
+    var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  --font-family-mono:
+    var(--font-space-grotesk), 'SF Mono', 'Monaco', 'Inconsolata',
+    'Roboto Mono', 'Courier New', monospace;
+  --font-family-display:
+    var(--font-space-grotesk), var(--font-inter), sans-serif;
+
+  /* Tailles de police */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+  --font-size-5xl: 3rem; /* 48px */
+  --font-size-6xl: 3.75rem; /* 60px */
+
+  /* Poids de police */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Hauteurs de ligne */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* ===== ESPACEMENTS ===== */
+
+  /* Espacements de base */
+  --spacing-0: 0;
+  --spacing-px: 1px;
+  --spacing-0-5: 0.125rem; /* 2px */
+  --spacing-1: 0.25rem; /* 4px */
+  --spacing-1-5: 0.375rem; /* 6px */
+  --spacing-2: 0.5rem; /* 8px */
+  --spacing-2-5: 0.625rem; /* 10px */
+  --spacing-3: 0.75rem; /* 12px */
+  --spacing-3-5: 0.875rem; /* 14px */
+  --spacing-4: 1rem; /* 16px */
+  --spacing-5: 1.25rem; /* 20px */
+  --spacing-6: 1.5rem; /* 24px */
+  --spacing-7: 1.75rem; /* 28px */
+  --spacing-8: 2rem; /* 32px */
+  --spacing-9: 2.25rem; /* 36px */
+  --spacing-10: 2.5rem; /* 40px */
+  --spacing-11: 2.75rem; /* 44px */
+  --spacing-12: 3rem; /* 48px */
+  --spacing-14: 3.5rem; /* 56px */
+  --spacing-16: 4rem; /* 64px */
+  --spacing-20: 5rem; /* 80px */
+  --spacing-24: 6rem; /* 96px */
+  --spacing-28: 7rem; /* 112px */
+  --spacing-32: 8rem; /* 128px */
+
+  /* ===== BREAKPOINTS ===== */
+
+  /* Breakpoints responsive */
+  --breakpoint-sm: 640px; /* Small devices */
+  --breakpoint-md: 768px; /* Medium devices */
+  --breakpoint-lg: 1024px; /* Large devices */
+  --breakpoint-xl: 1280px; /* Extra large devices */
+  --breakpoint-2xl: 1536px; /* 2X large devices */
+
+  /* ===== BORDURES ===== */
+
+  /* Rayons de bordure */
+  --radius-none: 0;
+  --radius-sm: 0.125rem; /* 2px */
+  --radius-base: 0.25rem; /* 4px */
+  --radius-md: 0.375rem; /* 6px */
+  --radius-lg: 0.5rem; /* 8px */
+  --radius-xl: 0.75rem; /* 12px */
+  --radius-2xl: 1rem; /* 16px */
+  --radius-3xl: 1.5rem; /* 24px */
+  --radius-full: 9999px;
+
+  /* Épaisseurs de bordure */
+  --border-width-0: 0;
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+  --border-width-4: 4px;
+  --border-width-8: 8px;
+
+  /* ===== OMBRES ===== */
+
+  /* Ombres de boîte */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-base:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+  /* Ombres spéciales Cybersécurité */
+  --shadow-classified: 0 0 20px rgba(0, 255, 65, 0.3); /* Glow vert terminal */
+  --shadow-redacted: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-cyber: 0 0 15px rgba(0, 212, 255, 0.4); /* Glow bleu cybersécurité */
+  --shadow-alert: 0 0 10px rgba(255, 0, 64, 0.5); /* Glow rouge alerte */
+
+  /* ===== TRANSITIONS ===== */
+
+  /* Durées de transition */
+  --duration-75: 75ms;
+  --duration-100: 100ms;
+  --duration-150: 150ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-500: 500ms;
+  --duration-700: 700ms;
+  --duration-1000: 1000ms;
+
+  /* Fonctions d'accélération */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ===== Z-INDEX ===== */
+
+  /* Niveaux de superposition */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+  --z-index-toast: 1080;
+
+  /* ===== SPÉCIFIQUE CYBERSÉCURITÉ ===== */
+
+  /* Effets visuels spéciaux */
+  --noise-opacity: 0.03;
+  --scanline-opacity: 0.1;
+  --redacted-bg: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+
+  /* Couleurs de statut - Cybersécurité */
+  --status-active: var(--color-success); /* Vert terminal */
+  --status-missing: var(--color-warning); /* Jaune warning */
+  --status-unknown: var(--color-text-tertiary); /* Gris clair */
+  --status-retired: var(--color-text-muted); /* Gris moyen */
+  --status-redacted: var(--color-accent-alert); /* Rouge alerte */
+  --status-secure: var(--color-accent-secondary); /* Bleu cybersécurité */
+}
+
+/* ===== VARIABLES RESPONSIVE ===== */
+
+/* Small devices (640px and up) */
+@media (min-width: 640px) {
+  :root {
+    --container-padding: var(--spacing-6);
+  }
+}
+
+/* Medium devices (768px and up) */
+@media (min-width: 768px) {
+  :root {
+    --container-padding: var(--spacing-8);
+  }
+}
+
+/* Large devices (1024px and up) */
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: var(--spacing-12);
+  }
+}
+
+/* Extra large devices (1280px and up) */
+@media (min-width: 1280px) {
+  :root {
+    --container-padding: var(--spacing-16);
+  }
+}
