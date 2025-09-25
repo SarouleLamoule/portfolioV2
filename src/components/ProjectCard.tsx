@@ -9,7 +9,6 @@ interface Project {
   tag: string;
   image: string;
   status: 'completed' | 'in-progress' | 'planned';
-  category: string;
   startDate: string;
   technologies: string[];
   description?: string;

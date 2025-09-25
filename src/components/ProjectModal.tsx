@@ -9,7 +9,6 @@ interface Project {
   tag: string;
   image: string;
   status: 'completed' | 'in-progress' | 'planned';
-  category: string;
   startDate: string;
   technologies: string[];
   description?: string;
@@ -330,31 +329,6 @@ export default function ProjectModal({
                     />
                     {getStatusText()}
                   </div>
-                </div>
-
-                <div>
-                  <p
-                    style={{
-                      color: 'var(--color-text-tertiary)',
-                      fontSize: 'var(--font-size-xs)',
-                      margin: 0,
-                      marginBottom: 'var(--spacing-1)',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em',
-                    }}
-                  >
-                    Catégorie
-                  </p>
-                  <p
-                    style={{
-                      color: 'var(--color-text-primary)',
-                      fontSize: 'var(--font-size-base)',
-                      fontWeight: 'var(--font-weight-medium)',
-                      margin: 0,
-                    }}
-                  >
-                    {project.category}
-                  </p>
                 </div>
 
                 <div>

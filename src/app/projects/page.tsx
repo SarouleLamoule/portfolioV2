@@ -12,7 +12,6 @@ interface Project {
   tag: string;
   image: string;
   status: 'completed' | 'in-progress' | 'planned';
-  category: string;
   startDate: string;
   technologies: string[];
   description?: string;
@@ -27,195 +26,93 @@ export default function ProjectsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
     'professional' | 'academic' | 'personal'
-  >('professional');
+  >('personal');
 
   useEffect(() => {
-    // Données des projets basées sur project.md
+    // Données des projets personnels uniquement
     const projectsData: Project[] = [
-      // Projets professionnels
       {
         id: '1',
-        name: 'Application mobile de gestion viticole',
-        tag: 'VITICULTURE-APP',
-        image: '/projects/viticulture_blur.svg',
-        status: 'completed',
-        category: 'Projet Professionnel',
-        startDate: '2022-09-01',
-        technologies: ['Xamarin', 'C#', 'Cloud Sync', 'Offline Mode'],
-        description:
-          "Application multiplateforme réalisée sur une durée d'un an en Xamarin pour simplifier la gestion quotidienne des viticulteurs bordelais.",
-        features: [
-          'Gestion des stocks et interventions',
-          'Traçabilité complète',
-          'Synchronisation cloud',
-          'Travail hors-ligne',
-        ],
-      },
-      {
-        id: '2',
-        name: 'Coffre-fort numérique',
-        tag: 'VAULT-SECURE',
-        image: '/projects/vault_blur.svg',
-        status: 'completed',
-        category: 'Projet Professionnel',
-        startDate: '2023-01-15',
-        technologies: ['C#', 'Encryption', 'Access Control', 'Admin Panel'],
-        description:
-          "Développement d'une solution sécurisée de gestion des identifiants avec chiffrement des données sensibles.",
-        features: [
-          'Chiffrement des données sensibles',
-          'Gestion fine des accès et droits',
-          "Interface d'administration complète",
-          'Sécurité renforcée',
-        ],
-      },
-      {
-        id: '3',
-        name: 'Refonte logiciel interne',
-        tag: 'REFACTOR-LEGACY',
-        image: '/projects/refactor_blur.svg',
-        status: 'completed',
-        category: 'Projet Professionnel',
-        startDate: '2023-06-01',
-        technologies: ['.NET', 'SQL Server', 'WPF'],
-        description:
-          "Refonte complète d'un logiciel interne d'entreprise avec modernisation de l'architecture.",
-        features: [
-          'Architecture moderne .NET',
-          'Base de données SQL Server',
-          'Interface WPF améliorée',
-          'Détails confidentiels',
-        ],
-      },
-      // Projets académiques
-      {
-        id: '4',
-        name: "Application Android de gestion d'entreprise de bus",
-        tag: 'BUS-MANAGER',
-        image: '/projects/bus_blur.svg',
-        status: 'completed',
-        category: 'Projet Académique',
-        startDate: '2021-09-01',
-        technologies: ['Android Studio', 'Java', 'SQLite', 'Material Design'],
-        description:
-          "Application Android complète pour la gestion des lignes, conducteurs, véhicules et horaires d'une entreprise de bus.",
-        features: [
-          'Gestion des lignes et conducteurs',
-          'Gestion des véhicules et horaires',
-          'Base de données locale SQLite',
-          'Interface Material Design',
-        ],
-      },
-      {
-        id: '5',
-        name: 'Blog avec CMS personnalisé',
-        tag: 'BLOG-CMS',
-        image: '/projects/blog_blur.svg',
-        status: 'completed',
-        category: 'Projet Académique',
-        startDate: '2021-11-01',
-        technologies: ['PHP', 'MySQL', 'Custom CMS'],
-        description:
-          'Blog complet avec système de gestion de contenu personnalisé développé en PHP.',
-        features: [
-          'CMS personnalisé',
-          'Base de données MySQL',
-          "Interface d'administration",
-          "Système d'articles",
-        ],
-      },
-      {
-        id: '6',
-        name: 'API REST',
-        tag: 'REST-API',
-        image: '/projects/api_blur.svg',
-        status: 'completed',
-        category: 'Projet Académique',
-        startDate: '2022-01-15',
-        technologies: ['Node.js', 'Express', 'MongoDB'],
-        description:
-          'API REST complète développée avec Node.js et Express pour la gestion de données.',
-        features: [
-          'Architecture REST',
-          'Base de données MongoDB',
-          'Endpoints sécurisés',
-          'Documentation API',
-        ],
-      },
-      // Projets personnels
-      {
-        id: '7',
         name: 'Animeo',
         tag: 'ANIMEO-PLATFORM',
         image: '/projects/animeo.png',
         status: 'in-progress',
-        category: 'Projet Personnel',
         startDate: '2023',
         technologies: [],
         description:
           "Membre de l'équipe de développement d'Animeo, une plateforme communautaire autour des animés.",
-        features: [
-          'Architecture interne',
-          'Outils complémentaires',
-          'Plateforme communautaire',
-          'Contribution active',
-        ],
-        liveUrl: '#',
+        liveUrl: 'https://animeovf.fr/',
       },
       {
-        id: '8',
+        id: '2',
         name: 'Karma - Bot Discord',
         tag: 'KARMA-BOT',
         image: '/projects/karma.png',
         status: 'in-progress',
-        category: 'Projet Personnel',
         startDate: '2025',
         technologies: ['Node.js', 'MongoDB', 'Discord.js', 'GitHub Actions'],
         description:
           'Bot Discord exclusif pour la communauté Animeo avec système de Karma/Coins, Clans et événements.',
-        features: [
-          'Système de Karma/Coins',
-          'Gestion des Clans',
-          'Événements automatisés',
-          'Fonctions avancées',
-        ],
-        githubUrl: 'https://github.com/tim/karma-bot',
       },
       {
-        id: '9',
+        id: '3',
+        name: 'Portfolio V1',
+        tag: 'PORTFOLIO-V1',
+        image: '/projects/portfolioV1.png',
+        status: 'completed',
+        startDate: '2024',
+        technologies: ['React.js', 'CSS', 'React Router', 'JavaScript'],
+        description: 'Version 1 de mon portfolio personnel.',
+        liveUrl: 'https://saroulelamoule.github.io/portfolio/',
+        githubUrl: 'https://github.com/SarouleLamoule/portfolio',
+      },
+      {
+        id: '4',
+        name: 'carteldelRitmo',
+        tag: 'CARTELDELRITMO',
+        image: '/projects/carteldelritmo.png',
+        status: 'completed',
+        startDate: '2024',
+        technologies: ['React.js', 'CSS', 'React Router', 'JavaScript'],
+        description:
+          "Site dédiée à un label de musique pour l'univers GTA RP. Possibilité d'écouter les musiques.",
+        liveUrl: 'https://cartel-del-ritmo.vercel.app/',
+        githubUrl: 'https://github.com/SarouleLamoule/CartelDelRitmo',
+      },
+      {
+        id: '5',
+        name: 'Black Water',
+        tag: 'BLACK-WATER',
+        image: '/projects/blackwater.png',
+        status: 'in-progress',
+        startDate: '2025',
+        technologies: ['Next.js', 'CSS', 'TypeScript', 'JavaScript'],
+        description:
+          "Site dédiée à un groupe illégal fictif pour l'univers GTA RP.",
+        liveUrl: 'https://black-water-self.vercel.app/',
+        githubUrl: 'https://github.com/SarouleLamoule/Black-Water',
+      },
+      {
+        id: '6',
         name: 'Saroule RP - Serveur GTA RP',
         tag: 'SAROULE-RP',
         image: '/projects/default.png',
         status: 'completed',
-        category: 'Projet Personnel',
-        startDate: '2025',
+        startDate: '2024',
         technologies: ['FiveM', 'Lua', 'Infrastructure', 'Custom Scripts'],
         description:
           "Projet personnel de serveur GTA RP développé entièrement from scratch dans un but d'apprentissage autonome.",
-        features: [
-          'Infrastructure complète FiveM',
-          'Scripts personnalisés en Lua',
-          'Développement from scratch',
-          'Apprentissage autonome',
-        ],
       },
       {
-        id: '10',
+        id: '7',
         name: 'Serveur Cache-Cache GTA RP',
         tag: 'CACHE-CACHE',
         image: '/projects/default.png',
-        status: 'in-progress',
-        category: 'Projet Personnel',
-        startDate: '2025',
+        status: 'completed',
+        startDate: '2024',
         technologies: ['FiveM', 'Lua', 'Multiplayer', 'Custom Maps'],
         description:
           'Projet fun développé pour jouer entre amis, proposant des sessions de cache-cache multijoueur.',
-        features: [
-          'Sessions multijoueur',
-          'Environnements personnalisés',
-          'Mode cache-cache',
-          'Projet en cours',
-        ],
       },
     ];
 
@@ -1180,8 +1077,7 @@ export default function ProjectsPage() {
                     divertissement et la passion.
                   </p>
 
-                  {projects.filter((p) => p.category === 'Projet Personnel')
-                    .length > 0 && (
+                  {projects.length > 0 && (
                     <StaggeredFadeIn>
                       <div
                         style={{
@@ -1191,22 +1087,20 @@ export default function ProjectsPage() {
                           gap: 'var(--spacing-8)',
                         }}
                       >
-                        {projects
-                          .filter((p) => p.category === 'Projet Personnel')
-                          .map((project, index) => (
-                            <div
-                              key={project.id}
-                              style={{
-                                animationDelay: `${index * 100}ms`,
-                              }}
-                            >
-                              <ProjectCard
-                                project={project}
-                                onClick={() => handleCardClick(project)}
-                                className="project-card-3d"
-                              />
-                            </div>
-                          ))}
+                        {projects.map((project, index) => (
+                          <div
+                            key={project.id}
+                            style={{
+                              animationDelay: `${index * 100}ms`,
+                            }}
+                          >
+                            <ProjectCard
+                              project={project}
+                              onClick={() => handleCardClick(project)}
+                              className="project-card-3d"
+                            />
+                          </div>
+                        ))}
                       </div>
                     </StaggeredFadeIn>
                   )}
@@ -1256,11 +1150,7 @@ export default function ProjectsPage() {
                                 lineHeight: 1,
                               }}
                             >
-                              {
-                                projects.filter(
-                                  (p) => p.category === 'Projet Personnel'
-                                ).length
-                              }
+                              {projects.length}
                             </p>
                             <p
                               style={{
@@ -1283,11 +1173,8 @@ export default function ProjectsPage() {
                               }}
                             >
                               {
-                                projects.filter(
-                                  (p) =>
-                                    p.category === 'Projet Personnel' &&
-                                    p.status === 'completed'
-                                ).length
+                                projects.filter((p) => p.status === 'completed')
+                                  .length
                               }
                             </p>
                             <p
@@ -1312,9 +1199,7 @@ export default function ProjectsPage() {
                             >
                               {
                                 projects.filter(
-                                  (p) =>
-                                    p.category === 'Projet Personnel' &&
-                                    p.status === 'in-progress'
+                                  (p) => p.status === 'in-progress'
                                 ).length
                               }
                             </p>
