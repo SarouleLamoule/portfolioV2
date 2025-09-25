@@ -25,7 +25,6 @@
 # misc
 .DS_Store
 *.pem
-.vscode/
 .idea/
 *.swp
 *.swo
@@ -99,16 +98,9 @@ jspm_packages/
 # yarn integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
-.env.test
-
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
-
-# next.js build output
-.next
 
 # nuxt.js build output
 .nuxt
@@ -138,6 +130,8 @@ temp/
 # editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
 .idea
 *.suo
 *.ntvs*
@@ -151,6 +145,21 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
+# test files
+*.test.js
+*.test.ts
+*.test.tsx
+*.spec.js
+*.spec.ts
+*.spec.tsx
+
+# build files
+*.map
+*.min.js
+*.min.css
+
 # performance monitoring
 performance-results.json
 mobile-test-results.json
+*.perf.json
+*.benchmark.json
