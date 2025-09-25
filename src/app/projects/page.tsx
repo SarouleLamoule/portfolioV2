@@ -68,7 +68,7 @@ export default function ProjectsPage() {
       },
       {
         id: '4',
-        name: 'carteldelRitmo',
+        name: 'Cartel Del Ritmo',
         tag: 'CARTELDELRITMO',
         image: '/projects/carteldelritmo.png',
         status: 'completed',
@@ -363,9 +363,9 @@ export default function ProjectsPage() {
                     animation: 'float 6s ease-in-out infinite',
                   }}
                 >
-                  Découvrez mes projets de développement, de la cybersécurité au
-                  DevOps. Chaque projet reflète ma passion pour
-                  l&apos;innovation technologique.
+                  Découvrez mes projets de développement et de DevOps. Chaque
+                  projet reflète ma passion pour l&apos;innovation
+                  technologique.
                 </p>
 
                 {/* Effet de données qui défilent */}
