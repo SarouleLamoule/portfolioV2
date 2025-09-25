@@ -2367,9 +2367,143 @@ a:active {
   }
 }
 
+/* Styles pour le terminal des projets */
+.projects-terminal {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  right: 10%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(0, 255, 65, 0.5);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4);
+  font-family: monospace;
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-primary);
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+/* Repositionnement du terminal sur mobile */
+@media (max-width: 768px) {
+  .projects-terminal {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin: var(--spacing-8) auto var(--spacing-4) auto !important;
+    max-width: 90% !important;
+    font-size: var(--font-size-xs) !important;
+    padding: var(--spacing-3) !important;
+  }
+}
+
+/* Styles responsive pour la page d'accueil */
+@media (max-width: 768px) {
+  /* Réduire la taille du titre sur mobile */
+  .home-hero-title {
+    font-size: var(--font-size-4xl) !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  /* Ajuster les effets holographiques */
+  .home-hologram-left {
+    left: 2% !important;
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .home-hologram-right {
+    right: 2% !important;
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  /* Ajuster les effets de données */
+  .home-data-stream {
+    left: -30px !important;
+    right: -30px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero-title {
+    font-size: var(--font-size-3xl) !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .home-hologram-left,
+  .home-hologram-right {
+    display: none !important;
+  }
+}
+
 /* Styles personnalisés pour la scrollbar du modal */
 .project-modal-content::-webkit-scrollbar {
   width: 8px;
+}
+
+/* Styles responsive pour le modal des projets */
+@media (max-width: 768px) {
+  .project-modal-content {
+    max-width: 95% !important;
+    max-height: 95vh !important;
+    margin: var(--spacing-2) !important;
+  }
+
+  .project-modal-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--spacing-4) !important;
+  }
+
+  .project-modal-image {
+    width: 100% !important;
+    height: 200px !important;
+    margin: 0 auto !important;
+    max-width: 300px !important;
+  }
+
+  .project-modal-info {
+    grid-template-columns: 1fr !important;
+    gap: var(--spacing-3) !important;
+  }
+
+  .project-modal-header {
+    flex-direction: column !important;
+    gap: var(--spacing-3) !important;
+    align-items: flex-start !important;
+  }
+
+  .project-modal-title {
+    font-size: var(--font-size-xl) !important;
+  }
+
+  .project-modal-close {
+    align-self: flex-end !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-modal-content {
+    max-width: 100% !important;
+    margin: var(--spacing-1) !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .project-modal-image {
+    height: 150px !important;
+    max-width: 250px !important;
+  }
+
+  .project-modal-title {
+    font-size: var(--font-size-lg) !important;
+  }
+
+  .project-modal-info {
+    gap: var(--spacing-2) !important;
+  }
 }
 
 .project-modal-content::-webkit-scrollbar-track {

@@ -121,6 +121,7 @@ export default function ProjectModal({
       >
         {/* En-tête du modal */}
         <div
+          className="project-modal-header"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -135,6 +136,7 @@ export default function ProjectModal({
         >
           <div>
             <h2
+              className="project-modal-title"
               style={{
                 color: 'var(--color-text-primary)',
                 fontSize: 'var(--font-size-2xl)',
@@ -158,6 +160,7 @@ export default function ProjectModal({
           </div>
 
           <div
+            className="project-modal-close"
             onClick={onClose}
             style={{
               minWidth: 'auto',
@@ -185,6 +188,7 @@ export default function ProjectModal({
         <div style={{ padding: 'var(--spacing-6)' }}>
           {/* Section principale */}
           <div
+            className="project-modal-grid"
             style={{
               display: 'grid',
               gridTemplateColumns: '200px 1fr',
@@ -194,6 +198,7 @@ export default function ProjectModal({
           >
             {/* Image du projet */}
             <div
+              className="project-modal-image"
               style={{
                 position: 'relative',
                 width: '200px',
@@ -244,6 +249,7 @@ export default function ProjectModal({
             {/* Informations de base */}
             <div>
               <div
+                className="project-modal-info"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: '1fr 1fr',

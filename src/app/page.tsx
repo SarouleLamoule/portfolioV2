@@ -134,12 +134,13 @@ export default function Home() {
 
           {/* Effet holographique de fond */}
           <div
+            className="home-hologram-left"
             style={{
               position: 'absolute',
               top: '20%',
-              left: '10%',
-              width: '200px',
-              height: '200px',
+              left: '5%',
+              width: '150px',
+              height: '150px',
               background:
                 'radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%)',
               borderRadius: '50%',
@@ -148,12 +149,13 @@ export default function Home() {
             }}
           />
           <div
+            className="home-hologram-right"
             style={{
               position: 'absolute',
               bottom: '20%',
-              right: '10%',
-              width: '150px',
-              height: '150px',
+              right: '5%',
+              width: '120px',
+              height: '120px',
               background:
                 'radial-gradient(circle, rgba(0, 255, 65, 0.08) 0%, transparent 70%)',
               borderRadius: '50%',
@@ -167,10 +169,13 @@ export default function Home() {
             style={{
               textAlign: 'center',
               maxWidth: '900px',
+              width: '100%',
               position: 'relative',
               zIndex: 10,
               transform: 'perspective(1000px) rotateX(0deg)',
               transition: 'transform 0.3s ease',
+              padding: '0 var(--spacing-4)',
+              boxSizing: 'border-box',
             }}
           >
             <FadeIn delay={200}>
@@ -181,6 +186,7 @@ export default function Home() {
                 }}
               >
                 <h1
+                  className="home-hero-title"
                   style={{
                     fontSize: 'var(--font-size-6xl)',
                     fontWeight: 'var(--font-weight-bold)',
@@ -196,6 +202,8 @@ export default function Home() {
                     animation: 'glow 3s ease-in-out infinite',
                     transform: 'translateZ(50px)',
                     filter: 'drop-shadow(0 0 30px rgba(0, 255, 65, 0.5))',
+                    wordBreak: 'break-word',
+                    overflowWrap: 'break-word',
                   }}
                 >
                   PORTFOLIO TIM
@@ -253,10 +261,11 @@ export default function Home() {
 
                 {/* Effet de données qui défilent */}
                 <div
+                  className="home-data-stream"
                   style={{
                     position: 'absolute',
                     top: '50%',
-                    left: '-100px',
+                    left: '-50px',
                     width: '2px',
                     height: '20px',
                     background:
@@ -266,10 +275,11 @@ export default function Home() {
                   }}
                 />
                 <div
+                  className="home-data-stream"
                   style={{
                     position: 'absolute',
                     top: '50%',
-                    right: '-100px',
+                    right: '-50px',
                     width: '2px',
                     height: '20px',
                     background:

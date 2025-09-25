@@ -209,7 +209,7 @@ export default function ProjectsPage() {
             })}
           </div>
 
-          {/* Effet de terminal avec texte qui s'affiche */}
+          {/* Effet de terminal avec texte qui s'affiche - Desktop */}
           <div
             className="projects-terminal"
             style={{
