@@ -29,12 +29,9 @@ export function middleware(request: NextRequest) {
 
   response.headers.set('Content-Security-Policy', csp);
 
-  // Headers spécifiques pour les pages de membres
-  if (request.nextUrl.pathname.startsWith('/members')) {
-    response.headers.set(
-      'X-Robots-Tag',
-      'noindex, nofollow, noarchive, nosnippet'
-    );
+  // Headers spécifiques pour les pages de projets (remplace les anciennes pages membres)
+  if (request.nextUrl.pathname.startsWith('/projects')) {
+    response.headers.set('X-Robots-Tag', 'index, follow');
   }
 
   // Headers pour les API routes
@@ -46,13 +43,12 @@ export function middleware(request: NextRequest) {
     );
   }
 
-  // Headers pour les pages publiques
+  // Headers pour les pages publiques du portfolio
   if (
     request.nextUrl.pathname === '/' ||
     request.nextUrl.pathname.startsWith('/about') ||
-    request.nextUrl.pathname.startsWith('/team') ||
-    request.nextUrl.pathname.startsWith('/operations') ||
-    request.nextUrl.pathname.startsWith('/press')
+    request.nextUrl.pathname.startsWith('/formation') ||
+    request.nextUrl.pathname.startsWith('/cv')
   ) {
     response.headers.set('X-Robots-Tag', 'index, follow');
   }

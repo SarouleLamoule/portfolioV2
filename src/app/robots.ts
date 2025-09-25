@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/'],
+        disallow: ['/_next/', '/admin/'],
       },
     ],
     sitemap: 'https://portfolio-tim-perrichot-chaussat.vercel.app/sitemap.xml',

@@ -172,26 +172,6 @@ export default function Header() {
             >
               <span style={{ position: 'relative', zIndex: 3 }}>CV</span>
             </Link>
-
-            <Link
-              href="/animation"
-              className={`nav-link ${isActive('/animation') ? 'active' : ''}`}
-              style={{
-                color: isActive('/animation')
-                  ? 'var(--color-accent-red)'
-                  : 'var(--color-text-primary)',
-                textDecoration: 'none',
-                fontSize: 'var(--font-size-sm)',
-                fontWeight: 'var(--font-weight-medium)',
-                transition: 'color var(--duration-200) var(--ease-in-out)',
-                position: 'relative',
-                padding: 'var(--spacing-2) var(--spacing-4)',
-                borderRadius: 'var(--radius-base)',
-                overflow: 'hidden',
-              }}
-            >
-              <span style={{ position: 'relative', zIndex: 3 }}>Animation</span>
-            </Link>
           </nav>
 
           {/* Menu Mobile Toggle */}
@@ -340,28 +320,6 @@ export default function Header() {
               }}
             >
               <span style={{ position: 'relative', zIndex: 3 }}>CV</span>
-            </Link>
-
-            <Link
-              href="/animation"
-              onClick={() => setIsMenuOpen(false)}
-              className={`nav-link ${isActive('/animation') ? 'active' : ''}`}
-              style={{
-                color: isActive('/animation')
-                  ? 'var(--color-accent-red)'
-                  : 'var(--color-text-primary)',
-                textDecoration: 'none',
-                fontSize: 'var(--font-size-base)',
-                fontWeight: 'var(--font-weight-medium)',
-                padding: 'var(--spacing-3) var(--spacing-4)',
-                transition: 'color var(--duration-200) var(--ease-in-out)',
-                position: 'relative',
-                borderRadius: 'var(--radius-base)',
-                margin: '0 var(--spacing-4)',
-                overflow: 'hidden',
-              }}
-            >
-              <span style={{ position: 'relative', zIndex: 3 }}>Animation</span>
             </Link>
           </nav>
         )}
