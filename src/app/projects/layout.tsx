@@ -1,26 +1,22 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Dossier des Membres - Black Water',
+  title: 'Mes Projets - Portfolio Tim',
   description:
-    'Accès restreint aux dossiers personnels des opérateurs de Black Water. Informations classifiées - Niveau de sécurité requis.',
+    'Découvrez mes projets de développement, de la cybersécurité au DevOps. Projets professionnels, académiques et personnels.',
   robots: {
-    index: false,
-    follow: false,
-    noarchive: true,
-    nosnippet: true,
-    noimageindex: true,
-    nocache: true,
+    index: true,
+    follow: true,
   },
   openGraph: {
-    title: 'Dossier des Membres - Black Water',
+    title: 'Mes Projets - Portfolio Tim',
     description:
-      'Accès restreint aux dossiers personnels des opérateurs de Black Water.',
+      'Découvrez mes projets de développement, de la cybersécurité au DevOps.',
     type: 'website',
   },
 };
 
-export default function MembersLayout({
+export default function ProjectsLayout({
   children,
 }: {
   children: React.ReactNode;

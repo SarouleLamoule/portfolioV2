@@ -6,14 +6,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: [
-          '/members/',
-          '/api/',
-          '/_next/',
-          '/admin/',
-        ],
+        disallow: ['/api/', '/_next/', '/admin/'],
       },
     ],
-    sitemap: 'https://blackwater.example.com/sitemap.xml',
+    sitemap: 'https://portfolio-tim-perrichot-chaussat.vercel.app/sitemap.xml',
   };
 }

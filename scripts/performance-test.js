@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Script de test de performance pour Black Water
+ * Script de test de performance pour Portfolio Tim
  * Mesure les performances des animations et des effets visuels
  */
 

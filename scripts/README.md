@@ -1,6 +1,6 @@
-# 🔧 Scripts Utilitaires - Black Water
+# 🔧 Scripts Utilitaires - Portfolio Tim
 
-Ce dossier contient les scripts Node.js utilisés pour la maintenance et la validation du projet Black Water.
+Ce dossier contient les scripts Node.js utilisés pour la maintenance et la validation du projet Portfolio Tim.
 
 ## 📜 Scripts Disponibles
 
@@ -29,15 +29,15 @@ node scripts/validate-json.js
 - `data/members.json`
 - `data/operations.json`
 - `data/press.json`
-- `data/blackwater.json`
+- `data/portfolio.json`
 
 **Exemple de sortie** :
 
 ```
-🔍 Validation des fichiers JSON Black Water
+🔍 Validation des fichiers JSON Portfolio Tim
 ==================================================
 ✅ members.json - Valide
-✅ blackwater.json - Valide
+✅ portfolio.json - Valide
 ✅ operations.json - Valide
 ✅ press.json - Valide
 ==================================================
@@ -75,10 +75,10 @@ node scripts/test-json.js
 **Exemple de sortie** :
 
 ```
-🧪 Tests de validation JSON Black Water
+🧪 Tests de validation JSON Portfolio Tim
 ==================================================
 ✅ Schéma chargé avec succès
-✅ blackwater.json - Valide
+✅ portfolio.json - Valide
 ✅ members.json - Valide
 ✅ operations.json - Valide
 ✅ press.json - Valide
@@ -131,7 +131,7 @@ node scripts/blur-images.js
 **Exemple de sortie** :
 
 ```
-🖼️ Traitement des images Black Water
+🖼️ Traitement des images Portfolio Tim
 ==================================================
 📁 Dossier source: assets/members-src/
 📁 Dossier destination: public/members/
@@ -172,7 +172,7 @@ data/
 ├── members.json        # Données des membres
 ├── operations.json     # Données des opérations
 ├── press.json          # Communiqués de presse
-└── blackwater.json     # Infos organisation
+└── portfolio.json      # Infos portfolio
 
 assets/members-src/     # Images sources
 public/members/         # Images traitées

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Script d'optimisation des performances pour Black Water
+ * Script d'optimisation des performances pour Portfolio Tim
  * Optimise les animations et les effets visuels pour de meilleures performances
  */
 

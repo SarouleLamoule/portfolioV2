@@ -1,25 +1,22 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Profil Classifié - Black Water',
+  title: 'Projet - Portfolio Tim',
   description:
-    'Dossier personnel classifié - Accès restreint aux informations sensibles.',
+    'Détails du projet - Découvrez les technologies utilisées et les fonctionnalités développées.',
   robots: {
-    index: false,
-    follow: false,
-    noarchive: true,
-    nosnippet: true,
-    noimageindex: true,
-    nocache: true,
+    index: true,
+    follow: true,
   },
   openGraph: {
-    title: 'Profil Classifié - Black Water',
-    description: 'Dossier personnel classifié - Accès restreint.',
-    type: 'profile',
+    title: 'Projet - Portfolio Tim',
+    description:
+      'Détails du projet - Technologies et fonctionnalités développées.',
+    type: 'website',
   },
 };
 
-export default function MemberProfileLayout({
+export default function ProjectDetailLayout({
   children,
 }: {
   children: React.ReactNode;

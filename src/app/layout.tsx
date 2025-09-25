@@ -14,18 +14,17 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://portfolio-tim.vercel.app'),
+  metadataBase: new URL('https://portfolio-tim-perrichot-chaussat.vercel.app'),
   title: 'Portfolio Tim - Développeur Full Stack',
   description:
     "Portfolio de Tim, développeur Full Stack passionné par l'innovation et la cybersécurité.",
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/logo.png', type: 'image/png' },
+      { url: '/favicon.png', type: 'image/png' },
     ],
-    shortcut: '/favicon.ico',
-    apple: '/logo.png',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.png',
   },
   keywords: [
     'Tim',
@@ -54,14 +53,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://portfolio-tim.vercel.app',
+    url: 'https://portfolio-tim-perrichot-chaussat.vercel.app',
     siteName: 'Portfolio Tim',
     title: 'Portfolio Tim - Développeur Full Stack',
     description:
       "Portfolio de Tim, développeur Full Stack passionné par l'innovation et la cybersécurité.",
     images: [
       {
-        url: 'https://portfolio-tim.vercel.app/logo.png',
+        url: 'https://portfolio-tim-perrichot-chaussat.vercel.app/favicon.png',
         width: 1200,
         height: 630,
         alt: 'Portfolio Tim - Développeur Full Stack',
@@ -77,7 +76,7 @@ export const metadata: Metadata = {
     title: 'Portfolio Tim - Développeur Full Stack',
     description:
       "Portfolio de Tim, développeur Full Stack passionné par l'innovation et la cybersécurité.",
-    images: ['https://portfolio-tim.vercel.app/logo.png'],
+    images: ['https://portfolio-tim-perrichot-chaussat.vercel.app/favicon.png'],
   },
   verification: {
     google: 'your-google-verification-code',

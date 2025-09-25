@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Script de test de responsivité mobile pour Black Water
+ * Script de test de responsivité mobile pour Portfolio Tim
  * Teste la responsivité et les optimisations mobiles
  */
 
