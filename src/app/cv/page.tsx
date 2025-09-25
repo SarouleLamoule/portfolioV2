@@ -1,27 +1,43 @@
 'use client';
 
-import { Header, Footer } from '../../components';
+import Image from 'next/image';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import { FadeIn } from '../../components/Animations';
 
 export default function CVPage() {
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/CV_TIM_PERRICHOT-CHAUSSAT.pdf';
+    link.download = 'CV_TIM_PERRICHOT-CHAUSSAT.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <>
+    <div>
       <Header />
 
-      <main
-        id="main-content"
-        style={{ minHeight: '100vh', paddingTop: '80px' }}
-      >
-        {/* Section Hero */}
+      <main id="main-content" role="main">
+        {/* Hero Section avec effets cybersécurité */}
         <section
           style={{
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
             padding: 'var(--spacing-16) 0',
-            background:
-              'linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%)',
+            background: `
+              linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #0f0f0f 50%, #1a1a1a 75%, #0a0a0a 100%)
+            `,
             position: 'relative',
             overflow: 'hidden',
+            textAlign: 'center',
           }}
         >
-          {/* Effets de fond cybersécurité */}
+          {/* Grille de sécurité animée en arrière-plan */}
           <div
             style={{
               position: 'absolute',
@@ -33,485 +49,342 @@ export default function CVPage() {
                 linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px)
               `,
-              backgroundSize: '20px 20px',
-              opacity: 0.5,
+              backgroundSize: '50px 50px',
+              animation: 'securityGridMove 20s linear infinite',
+              pointerEvents: 'none',
             }}
           />
 
-          <div className="container">
-            <div
-              style={{
-                textAlign: 'center',
-                maxWidth: '800px',
-                margin: '0 auto',
-              }}
-            >
-              <h1
+          {/* Particules de données flottantes */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              pointerEvents: 'none',
+            }}
+          >
+            {[...Array(15)].map((_, i) => {
+              const left = ((i * 7) % 100) + ((i * 3) % 20);
+              const top = ((i * 11) % 100) + ((i * 5) % 15);
+              const delay = (i % 3) + i * 0.2;
+
+              return (
+                <div
+                  key={i}
+                  style={{
+                    position: 'absolute',
+                    left: `${left}%`,
+                    top: `${top}%`,
+                    width: '3px',
+                    height: '3px',
+                    backgroundColor: 'rgba(0, 255, 65, 0.6)',
+                    borderRadius: '50%',
+                    boxShadow: '0 0 10px rgba(0, 255, 65, 0.8)',
+                    animation: `dataFloat ${4 + (i % 3)}s ease-in-out infinite`,
+                    animationDelay: `${delay}s`,
+                  }}
+                />
+              );
+            })}
+          </div>
+
+          {/* Contenu principal */}
+          <div
+            className="container cv-main-container"
+            style={{ position: 'relative', zIndex: 10 }}
+          >
+            <FadeIn>
+              <div
                 style={{
-                  fontSize: 'var(--font-size-4xl)',
-                  fontWeight: 'var(--font-weight-bold)',
-                  color: 'var(--color-accent-primary)',
-                  marginBottom: 'var(--spacing-6)',
-                  textShadow: '0 0 20px rgba(0, 255, 65, 0.5)',
-                  fontFamily: 'var(--font-family-display)',
+                  position: 'relative',
+                  display: 'inline-block',
                 }}
               >
-                CURRICULUM VITAE
-              </h1>
+                <h1
+                  className="cv-hero-title"
+                  style={{
+                    fontSize: 'var(--font-size-5xl)',
+                    fontWeight: 'var(--font-weight-bold)',
+                    color: 'var(--color-accent-primary)',
+                    marginBottom: 'var(--spacing-6)',
+                    fontFamily: 'var(--font-family-display)',
+                    textShadow: `
+                      0 0 20px rgba(0, 255, 65, 0.8),
+                      0 0 40px rgba(0, 255, 65, 0.6),
+                      0 0 60px rgba(0, 255, 65, 0.4)
+                    `,
+                    letterSpacing: '0.1em',
+                    animation: 'terminalGlow 3s ease-in-out infinite',
+                    transform: 'translateZ(50px)',
+                  }}
+                >
+                  Mon CV
+                </h1>
 
-              <p
+                {/* Effet de scan sur le titre */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background:
+                      'linear-gradient(90deg, transparent 0%, rgba(0, 255, 65, 0.1) 50%, transparent 100%)',
+                    animation:
+                      'slideInFromLeft 2s ease-in-out infinite alternate',
+                    pointerEvents: 'none',
+                  }}
+                />
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={400}>
+              <div
                 style={{
-                  fontSize: 'var(--font-size-lg)',
-                  color: 'var(--color-text-secondary)',
-                  lineHeight: 'var(--line-height-relaxed)',
+                  position: 'relative',
                   marginBottom: 'var(--spacing-8)',
                 }}
               >
-                Mon parcours professionnel et mes compétences en développement
-                et cybersécurité
-              </p>
-            </div>
+                <p
+                  className="cv-description"
+                  style={{
+                    fontSize: 'var(--font-size-xl)',
+                    color: 'var(--color-text-secondary)',
+                    maxWidth: '800px',
+                    margin: '0 auto',
+                    lineHeight: 'var(--line-height-relaxed)',
+                    textShadow: '0 0 10px rgba(255, 255, 255, 0.1)',
+                    transform: 'translateZ(30px)',
+                    animation: 'float 6s ease-in-out infinite',
+                  }}
+                >
+                  Découvrez mon parcours professionnel et mes compétences
+                  techniques. Téléchargez mon CV pour en savoir plus.
+                </p>
+
+                {/* Effet de données qui défilent */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '-100px',
+                    width: '2px',
+                    height: '20px',
+                    background:
+                      'linear-gradient(to bottom, transparent, rgba(0, 255, 65, 0.8), transparent)',
+                    animation: 'dataStream 4s linear infinite',
+                    transform: 'translateY(-50%)',
+                  }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    right: '-100px',
+                    width: '2px',
+                    height: '20px',
+                    background:
+                      'linear-gradient(to bottom, transparent, rgba(0, 255, 65, 0.8), transparent)',
+                    animation: 'dataStream 4s linear infinite 2s',
+                    transform: 'translateY(-50%)',
+                  }}
+                />
+              </div>
+            </FadeIn>
+
+            {/* Bouton de téléchargement principal */}
+            <FadeIn delay={600}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  marginBottom: 'var(--spacing-8)',
+                }}
+              >
+                <button
+                  onClick={handleDownload}
+                  className="btn cv-download-btn"
+                  style={{
+                    padding: 'var(--spacing-6) var(--spacing-12)',
+                    backgroundColor: 'var(--color-accent-primary)',
+                    color: 'var(--color-bg-primary)',
+                    border: '2px solid var(--color-accent-primary)',
+                    borderRadius: 'var(--radius-xl)',
+                    fontSize: 'var(--font-size-xl)',
+                    fontWeight: 'var(--font-weight-bold)',
+                    cursor: 'pointer',
+                    transition: 'all var(--duration-300) var(--ease-in-out)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                    boxShadow: '0 8px 32px rgba(0, 255, 65, 0.4)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-4px)';
+                    e.currentTarget.style.boxShadow =
+                      '0 12px 40px rgba(0, 255, 65, 0.6)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow =
+                      '0 8px 32px rgba(0, 255, 65, 0.4)';
+                  }}
+                >
+                  📄 Télécharger mon CV
+                </button>
+              </div>
+            </FadeIn>
           </div>
         </section>
 
-        {/* Section CV */}
-        <section style={{ padding: 'var(--spacing-16) 0' }}>
+        {/* Section Preview du CV */}
+        <section
+          style={{
+            padding: 'var(--spacing-16) 0',
+            backgroundColor: 'var(--color-bg-secondary)',
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
           <div className="container">
-            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-              {/* Informations personnelles */}
-              <div
-                style={{
-                  background: 'var(--color-bg-secondary)',
-                  border: '1px solid var(--color-border-primary)',
-                  borderRadius: 'var(--radius-lg)',
-                  padding: 'var(--spacing-8)',
-                  marginBottom: 'var(--spacing-8)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                <h2
-                  style={{
-                    fontSize: 'var(--font-size-2xl)',
-                    fontWeight: 'var(--font-weight-bold)',
-                    color: 'var(--color-accent-primary)',
-                    marginBottom: 'var(--spacing-6)',
-                    fontFamily: 'var(--font-family-display)',
-                  }}
-                >
-                  Informations Personnelles
-                </h2>
-
+            <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+              <FadeIn>
                 <div
                   style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                    gap: 'var(--spacing-4)',
+                    backgroundColor: 'var(--color-bg-primary)',
+                    border: '2px solid var(--color-accent-primary)',
+                    borderRadius: 'var(--radius-xl)',
+                    padding: 'var(--spacing-8)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6)',
+                    position: 'relative',
+                    overflow: 'hidden',
                   }}
                 >
-                  <div>
-                    <h3
-                      style={{
-                        fontSize: 'var(--font-size-lg)',
-                        fontWeight: 'var(--font-weight-semibold)',
-                        color: 'var(--color-text-primary)',
-                        marginBottom: 'var(--spacing-2)',
-                      }}
-                    >
-                      Tim
-                    </h3>
-                    <p
-                      style={{
-                        color: 'var(--color-text-secondary)',
-                        fontSize: 'var(--font-size-sm)',
-                      }}
-                    >
-                      Développeur Full Stack & Expert Cybersécurité
-                    </p>
-                  </div>
+                  {/* Effet de grille de sécurité */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      backgroundImage: `
+                        linear-gradient(rgba(0, 255, 65, 0.02) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0, 255, 65, 0.02) 1px, transparent 1px)
+                      `,
+                      backgroundSize: '20px 20px',
+                      animation: 'securityGridMove 15s linear infinite',
+                      pointerEvents: 'none',
+                    }}
+                  />
 
-                  <div>
-                    <h4
+                  {/* Preview du CV avec image */}
+                  <div
+                    style={{
+                      position: 'relative',
+                      zIndex: 2,
+                      textAlign: 'center',
+                    }}
+                  >
+                    <h2
                       style={{
-                        fontSize: 'var(--font-size-base)',
-                        fontWeight: 'var(--font-weight-semibold)',
-                        color: 'var(--color-text-primary)',
-                        marginBottom: 'var(--spacing-1)',
+                        fontSize: 'var(--font-size-3xl)',
+                        fontWeight: 'var(--font-weight-bold)',
+                        color: 'var(--color-accent-primary)',
+                        marginBottom: 'var(--spacing-6)',
+                        fontFamily: 'var(--font-family-display)',
                       }}
                     >
-                      📧 Email
-                    </h4>
-                    <p
-                      style={{
-                        color: 'var(--color-text-secondary)',
-                        fontSize: 'var(--font-size-sm)',
-                      }}
-                    >
-                      tim@portfolio.dev
-                    </p>
-                  </div>
+                      CV Tim Perrichot-Chaussat
+                    </h2>
 
-                  <div>
-                    <h4
-                      style={{
-                        fontSize: 'var(--font-size-base)',
-                        fontWeight: 'var(--font-weight-semibold)',
-                        color: 'var(--color-text-primary)',
-                        marginBottom: 'var(--spacing-1)',
-                      }}
-                    >
-                      📱 Téléphone
-                    </h4>
-                    <p
-                      style={{
-                        color: 'var(--color-text-secondary)',
-                        fontSize: 'var(--font-size-sm)',
-                      }}
-                    >
-                      +33 6 XX XX XX XX
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4
-                      style={{
-                        fontSize: 'var(--font-size-base)',
-                        fontWeight: 'var(--font-weight-semibold)',
-                        color: 'var(--color-text-primary)',
-                        marginBottom: 'var(--spacing-1)',
-                      }}
-                    >
-                      🌐 LinkedIn
-                    </h4>
-                    <p
-                      style={{
-                        color: 'var(--color-text-secondary)',
-                        fontSize: 'var(--font-size-sm)',
-                      }}
-                    >
-                      linkedin.com/in/tim-dev
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Expérience professionnelle */}
-              <div
-                style={{
-                  background: 'var(--color-bg-secondary)',
-                  border: '1px solid var(--color-border-primary)',
-                  borderRadius: 'var(--radius-lg)',
-                  padding: 'var(--spacing-8)',
-                  marginBottom: 'var(--spacing-8)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                <h2
-                  style={{
-                    fontSize: 'var(--font-size-2xl)',
-                    fontWeight: 'var(--font-weight-bold)',
-                    color: 'var(--color-accent-primary)',
-                    marginBottom: 'var(--spacing-6)',
-                    fontFamily: 'var(--font-family-display)',
-                  }}
-                >
-                  Expérience Professionnelle
-                </h2>
-
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 'var(--spacing-6)',
-                  }}
-                >
-                  {[
-                    {
-                      title: 'Développeur Full Stack Senior',
-                      company: 'TechCorp Solutions',
-                      period: '2023 - Présent',
-                      description:
-                        "Développement d'applications web sécurisées, architecture microservices, et mise en place de protocoles de sécurité.",
-                      achievements: [
-                        'Sécurisation de 15+ applications web',
-                        'Réduction de 40% des vulnérabilités',
-                        'Mise en place de CI/CD sécurisé',
-                      ],
-                    },
-                    {
-                      title: 'Développeur Cybersécurité',
-                      company: 'SecureDev Agency',
-                      period: '2022 - 2023',
-                      description:
-                        "Tests de pénétration, audits de sécurité, et développement d'outils de détection d'intrusions.",
-                      achievements: [
-                        'Audit de 20+ systèmes',
-                        'Détection de 150+ vulnérabilités',
-                        'Formation de 10+ développeurs',
-                      ],
-                    },
-                    {
-                      title: 'Développeur Web Junior',
-                      company: 'WebStart Studio',
-                      period: '2021 - 2022',
-                      description:
-                        "Développement d'applications web modernes avec React, Node.js et bases de données.",
-                      achievements: [
-                        'Développement de 8 applications',
-                        'Amélioration des performances de 60%',
-                        'Mise en place de tests automatisés',
-                      ],
-                    },
-                  ].map((job, index) => (
+                    {/* Image du CV */}
                     <div
-                      key={index}
                       style={{
-                        background: 'var(--color-bg-tertiary)',
-                        border: '1px solid var(--color-border-secondary)',
-                        borderRadius: 'var(--radius-base)',
-                        padding: 'var(--spacing-6)',
                         position: 'relative',
+                        width: '100%',
+                        maxWidth: '800px',
+                        margin: '0 auto var(--spacing-8) auto',
+                        borderRadius: 'var(--radius-lg)',
+                        overflow: 'hidden',
+                        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+                        border: '2px solid var(--color-accent-primary)',
                       }}
                     >
-                      <div
+                      <Image
+                        src="/CV_TIM_PERRICHOT-CHAUSSAT.jpg"
+                        alt="CV Tim Perrichot-Chaussat"
+                        width={800}
+                        height={1131}
                         style={{
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          alignItems: 'flex-start',
-                          marginBottom: 'var(--spacing-4)',
-                          flexWrap: 'wrap',
-                          gap: 'var(--spacing-2)',
+                          width: '100%',
+                          height: 'auto',
+                          display: 'block',
                         }}
-                      >
-                        <div>
-                          <h3
-                            style={{
-                              fontSize: 'var(--font-size-lg)',
-                              fontWeight: 'var(--font-weight-semibold)',
-                              color: 'var(--color-text-primary)',
-                              marginBottom: 'var(--spacing-1)',
-                            }}
-                          >
-                            {job.title}
-                          </h3>
-                          <p
-                            style={{
-                              fontSize: 'var(--font-size-base)',
-                              color: 'var(--color-accent-primary)',
-                              fontWeight: 'var(--font-weight-medium)',
-                            }}
-                          >
-                            {job.company}
-                          </p>
-                        </div>
-                        <span
-                          style={{
-                            fontSize: 'var(--font-size-sm)',
-                            color: 'var(--color-text-secondary)',
-                            background: 'var(--color-bg-primary)',
-                            padding: 'var(--spacing-2) var(--spacing-3)',
-                            borderRadius: 'var(--radius-base)',
-                            border: '1px solid var(--color-border-primary)',
-                          }}
-                        >
-                          {job.period}
-                        </span>
-                      </div>
-
-                      <p
-                        style={{
-                          color: 'var(--color-text-secondary)',
-                          lineHeight: 'var(--line-height-relaxed)',
-                          marginBottom: 'var(--spacing-4)',
-                        }}
-                      >
-                        {job.description}
-                      </p>
-
-                      <div>
-                        <h4
-                          style={{
-                            fontSize: 'var(--font-size-sm)',
-                            fontWeight: 'var(--font-weight-semibold)',
-                            color: 'var(--color-text-primary)',
-                            marginBottom: 'var(--spacing-2)',
-                          }}
-                        >
-                          Réalisations clés :
-                        </h4>
-                        <ul
-                          style={{
-                            listStyle: 'none',
-                            padding: 0,
-                            margin: 0,
-                          }}
-                        >
-                          {job.achievements.map((achievement, i) => (
-                            <li
-                              key={i}
-                              style={{
-                                fontSize: 'var(--font-size-sm)',
-                                color: 'var(--color-text-secondary)',
-                                marginBottom: 'var(--spacing-1)',
-                                paddingLeft: 'var(--spacing-4)',
-                                position: 'relative',
-                              }}
-                            >
-                              <span
-                                style={{
-                                  position: 'absolute',
-                                  left: 0,
-                                  top: '50%',
-                                  transform: 'translateY(-50%)',
-                                  color: 'var(--color-accent-primary)',
-                                }}
-                              >
-                                ▶
-                              </span>
-                              {achievement}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                        priority
+                      />
                     </div>
-                  ))}
-                </div>
-              </div>
 
-              {/* Compétences techniques */}
-              <div
-                style={{
-                  background: 'var(--color-bg-secondary)',
-                  border: '1px solid var(--color-border-primary)',
-                  borderRadius: 'var(--radius-lg)',
-                  padding: 'var(--spacing-8)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                <h2
-                  style={{
-                    fontSize: 'var(--font-size-2xl)',
-                    fontWeight: 'var(--font-weight-bold)',
-                    color: 'var(--color-accent-primary)',
-                    marginBottom: 'var(--spacing-6)',
-                    fontFamily: 'var(--font-family-display)',
-                  }}
-                >
-                  Compétences Techniques
-                </h2>
-
-                <div
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    gap: 'var(--spacing-6)',
-                  }}
-                >
-                  {[
-                    {
-                      category: 'Développement Web',
-                      skills: [
-                        'React',
-                        'Next.js',
-                        'Vue.js',
-                        'Node.js',
-                        'Express',
-                        'TypeScript',
-                      ],
-                      color: 'var(--color-accent-primary)',
-                    },
-                    {
-                      category: 'Cybersécurité',
-                      skills: [
-                        'Pentesting',
-                        'OWASP',
-                        'Burp Suite',
-                        'Nmap',
-                        'Metasploit',
-                        'Wireshark',
-                      ],
-                      color: 'var(--color-accent-secondary)',
-                    },
-                    {
-                      category: 'Bases de données',
-                      skills: [
-                        'PostgreSQL',
-                        'MongoDB',
-                        'Redis',
-                        'Elasticsearch',
-                        'SQL',
-                        'NoSQL',
-                      ],
-                      color: 'var(--color-accent-warning)',
-                    },
-                    {
-                      category: 'DevOps & Cloud',
-                      skills: [
-                        'Docker',
-                        'Kubernetes',
-                        'AWS',
-                        'Azure',
-                        'CI/CD',
-                        'Terraform',
-                      ],
-                      color: 'var(--color-accent-alert)',
-                    },
-                  ].map((category, index) => (
+                    {/* Bouton de téléchargement en bas */}
                     <div
-                      key={index}
                       style={{
-                        background: 'var(--color-bg-tertiary)',
-                        border: '1px solid var(--color-border-secondary)',
-                        borderRadius: 'var(--radius-base)',
-                        padding: 'var(--spacing-4)',
+                        display: 'flex',
+                        justifyContent: 'center',
                       }}
                     >
-                      <h3
+                      <button
+                        onClick={handleDownload}
+                        className="btn cv-download-btn-bottom"
                         style={{
+                          padding: 'var(--spacing-4) var(--spacing-8)',
+                          backgroundColor: 'transparent',
+                          color: 'var(--color-accent-primary)',
+                          border: '2px solid var(--color-accent-primary)',
+                          borderRadius: 'var(--radius-lg)',
                           fontSize: 'var(--font-size-lg)',
                           fontWeight: 'var(--font-weight-semibold)',
-                          color: category.color,
-                          marginBottom: 'var(--spacing-4)',
+                          cursor: 'pointer',
+                          transition:
+                            'all var(--duration-300) var(--ease-in-out)',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.05em',
+                          position: 'relative',
+                          overflow: 'hidden',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor =
+                            'var(--color-accent-primary)';
+                          e.currentTarget.style.color =
+                            'var(--color-bg-primary)';
+                          e.currentTarget.style.transform = 'translateY(-2px)';
+                          e.currentTarget.style.boxShadow =
+                            '0 4px 15px rgba(0, 255, 65, 0.3)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = 'transparent';
+                          e.currentTarget.style.color =
+                            'var(--color-accent-primary)';
+                          e.currentTarget.style.transform = 'translateY(0)';
+                          e.currentTarget.style.boxShadow = 'none';
                         }}
                       >
-                        {category.category}
-                      </h3>
-
-                      <div
-                        style={{
-                          display: 'flex',
-                          flexWrap: 'wrap',
-                          gap: 'var(--spacing-2)',
-                        }}
-                      >
-                        {category.skills.map((skill) => (
-                          <span
-                            key={skill}
-                            style={{
-                              fontSize: 'var(--font-size-sm)',
-                              color: category.color,
-                              background: `${category.color}15`,
-                              padding: 'var(--spacing-1) var(--spacing-3)',
-                              borderRadius: 'var(--radius-full)',
-                              border: `1px solid ${category.color}40`,
-                            }}
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
+                        📄 Télécharger CV
+                      </button>
                     </div>
-                  ))}
+                  </div>
                 </div>
-              </div>
+              </FadeIn>
             </div>
           </div>
         </section>
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }
